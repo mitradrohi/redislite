@@ -23,7 +23,8 @@ cmake -S "$SOURCE_DIR" -B "$BUILD_DIR"
 echo "🔨 Building the project..."
 cmake --build "$BUILD_DIR"
 
-ctest
+cd $BUILD_DIR
+ctest --output-on-failure --verbose -T Test --no-compress-output
 
 echo "✅ Build completed successfully."
 
