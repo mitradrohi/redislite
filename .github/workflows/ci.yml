@@ -2,20 +2,20 @@ name: Unittestcase
 
 on:
   push:
-    branch: [main]
+    branches: [main]
   pull_request:
-    branch: [main]
+    branches: [main]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    name: checkout code
-    action: actions/checkout@v4
+      - name: checkout code
+        uses: actions/checkout@v4
 
-    name: Install dependencies
-    run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build
 
-    name: build and run
-    run : chmod +x build.sh && ./build.sh . build
+      - name: build and run
+        run: chmod +x build.sh && ./build.sh . build
