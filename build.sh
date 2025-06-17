@@ -21,7 +21,7 @@ cmake -S "$SOURCE_DIR" -B "$BUILD_DIR"
 
 # Build the project
 echo "🔨 Building the project..."
-cmake --build "$BUILD_DIR"
+cmake --build "$BUILD_DIR" -j  16
 
 cd $BUILD_DIR
 ctest --output-on-failure --verbose -T Test --no-compress-output
